@@ -1,0 +1,40 @@
+-- 配置表模块，加载卸载配置表，读取配置表及配置表专用的方法
+
+DataTable = {}
+local this = DataTable
+
+-- 加载配置表
+function this.LoadDataTable(dataTableAssetPath)
+    local dataTableName = string.gsub(dataTableAssetPath, "/", "")
+    this[dataTableAssetPath] = require ("DataTables/" .. dataTableAssetPath)
+end
+
+-- 卸载配置表
+function this.UnloadDataTable(dataTableAssetPath)
+    local dataTableName = string.gsub(dataTableAssetPath, "/", "")
+    this[dataTableAssetPath] = nil
+    unrequire ("DataTables/" .. dataTableAssetPath)
+end
+
+-- 卸载所有配置表
+function this.UnloadAllDataTable()
+    for key, value in pairs(this) do
+        if type(key) == "string" and type(value) == "table" then
+            this.UnloadDataTable(key)
+        end
+    end
+end
+
+function this.GenerateKeySort(dataTable)
+    local keySort = {}
+    for key in pairs(dataTable) do
+        table.insert(keySort, key)
+    end
+    table.sort(keySort)
+    dataTable.keySort = keySort
+end
+
+-- 配置表字符串分割，分割符为"|"
+function this.SplitToArray(str)
+    return string.Split(str, "|")
+end

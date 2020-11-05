@@ -1,0 +1,123 @@
+-- Lua层的扩展方法
+
+-- 卸载Lua脚本，对应require
+function unrequire(modname)
+    for key, value in pairs(package.preload) do
+        if string.find(tostring(key), modname) == 1 then
+            package.preload[key] = nil
+        end
+    end
+    for key, value in pairs(package.loaded) do
+        if string.find(tostring(key), modname) == 1 then
+            package.loaded[key] = nil
+        end
+    end
+end
+
+-- 分割字符串，返回数组结构的字符串
+function string.Split(str, reps)
+    if str == nil or reps == nil then
+        return nil
+    end
+    local resultStrList = {}
+    string.gsub(
+        str,
+        "[^" .. reps .. "]+",
+        function(w)
+            table.insert(resultStrList, w)
+        end
+    )
+    return resultStrList
+end
+
+-- 先按 | 分成数组，如果其中还有 ;  就再分成一个数组形式
+function string.To2DAarry(content)
+    local result = {}
+    local lineStr = string.split(content, "|")
+    if lineStr == nil then
+        return nil
+    end
+    for i = 1, #lineStr, 1 do
+        result[i] = string.split(lineStr[i], ";")
+    end
+    return result
+end
+
+-- 资金数字展现：K（千）、M（百万）、B（亿）表示量级，小数点后两位
+--     4位数以内显示  999
+--     超过4位数      1.5k、999k
+--     超过7位数      11.52M
+--     超过9位数      1B
+function string.FormatNum(num)
+    if num < 1000 then
+        return tostring(math.floor5(num))
+        -- return tostring(num)
+    elseif num >= 1000 and num < 1000000 then
+        return string.format("%.1f",num / 1000).."K"
+    elseif num >= 1000000 and num < 100000000 then
+        return string.format("%.1f",num / 1000000).."M"
+    elseif num >= 100000000 then
+        return string.format("%.1f",num / 100000000).."B"
+    end
+end
+
+-- 输出Table及内容
+function table.Print(table)
+    Log.Debug(tostring(table) .. Utility.table_tostring(table))
+end
+
+function table.IsTabelNil(t)
+    if t == nil then
+        return true
+    end
+    if table.GetTabelCount(t) <= 0 then
+        return true
+    end
+    return false
+end
+
+function table.GetTabelCount(t)
+    if t == nil then
+        return 0
+    end
+    local count = 0
+    for index, value in pairs(t) do
+        count = count + 1
+    end
+    return count
+end
+
+--删除元素，只能删除连续得key得表
+function table.TabelRemove(tb,removeValue)
+    if table.IsTabelNil(tb) then
+        return
+    end
+    if removeValue == nil then
+        return
+    end
+    for i = #tb, 1, -1 do
+        if tb[i] == removeValue then
+            table.remove(tb, i)
+        end
+    end
+end
+
+function table.TableContains(t,data)
+    if table.IsTabelNil(t) then
+        return false
+    end
+    for index, value in pairs(t) do
+        if value == data then
+            return true
+        end
+    end
+    return false
+end
+
+--四舍五入得取整方式
+function math.floor5(x)
+    return math.floor(x + 0.5)
+end
+
+
+

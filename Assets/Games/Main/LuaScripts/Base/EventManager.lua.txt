@@ -1,0 +1,45 @@
+EventManager = {}
+local this = EventManager
+
+local DataEventArgs = CS.DataEventArgs
+
+function this.Subscribe(eventId, func)
+    GameEntry.Event:Subscribe(eventId, func)
+end
+
+function this.Unsubscribe(eventId, func)
+    GameEntry.Event:Unsubscribe(eventId, func)
+end
+
+function this.Fire(sender, eventId, ...)
+    local dataEventArgs = DataEventArgs.Create(sender, eventId, ...)
+    GameEntry.Event:Fire(dataEventArgs.EventId, dataEventArgs)
+end
+
+function this.FireNow(sender, eventId, ...)
+    local dataEventArgs = DataEventArgs.Create(sender, eventId, ...)
+    GameEntry.Event:FireNow(dataEventArgs.EventId, dataEventArgs)
+end
+
+local CSEventIds = CS.EventIds
+
+local eventIdsMetatable = {
+    __index = function(table, key)
+        local result = CSEventIds[key]
+        if result ~= nil then
+            return CS.System.Convert.ToInt32(result)
+        else
+            Log.Error(string.format("Event id:(%s) not exist ", key))
+            return 0
+        end
+    end
+}
+
+-- 用于事件广播和订阅用的事件ID，可直接访问C#的EventIds中的元素
+EventIds = {
+    Test1 = 20001,
+    Test2 = 20002,
+}
+
+setmetatable(EventIds, eventIdsMetatable)
+

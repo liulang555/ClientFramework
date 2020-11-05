@@ -1,0 +1,117 @@
+﻿
+
+<linker>
+
+	<assembly fullname="UnityEngine.CoreModule">
+	    <type fullname="UnityEngine.Time" preserve="all"/>
+		<type fullname="UnityEngine.Vector2" preserve="all"/>
+		<type fullname="UnityEngine.Vector3" preserve="all"/>
+		<type fullname="UnityEngine.Component" preserve="all"/>
+		<type fullname="UnityEngine.Transform" preserve="all"/>
+		<type fullname="UnityEngine.RectTransform" preserve="all"/>
+		<type fullname="UnityEngine.GameObject" preserve="all"/>
+		<type fullname="UnityEngine.Object" preserve="all"/>
+		<type fullname="UnityEngine.SkinnedMeshRenderer" preserve="all"/>
+		<type fullname="UnityEngine.MeshRenderer" preserve="all"/>
+		<type fullname="UnityEngine.TextAsset" preserve="all"/>
+		<type fullname="UnityEngine.Sprite" preserve="all"/>
+		<type fullname="UnityEngine.Application" preserve="all"/>
+		<type fullname="UnityEngine.RuntimePlatform" preserve="all"/>
+		<type fullname="UnityEngine.Camera" preserve="all"/>
+		<type fullname="UnityEngine.Screen" preserve="all"/>
+		<type fullname="UnityEngine.ColorUtility" preserve="all"/>
+		<type fullname="UnityEngine.ReflectionProbe" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="UnityEngine.AnimationModule">
+	    <type fullname="UnityEngine.Animator" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="UnityEngine.ParticleSystemModule">
+	    <type fullname="UnityEngine.ParticleSystem" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="UnityEngine.PhysicsModule">
+	    <type fullname="UnityEngine.Rigidbody" preserve="all"/>
+		<type fullname="UnityEngine.ForceMode" preserve="all"/>
+		<type fullname="UnityEngine.BoxCollider" preserve="all"/>
+		<type fullname="UnityEngine.MeshCollider" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="UnityEngine.UI">
+	    <type fullname="UnityEngine.UI.Image" preserve="all"/>
+		<type fullname="UnityEngine.UI.Button" preserve="all"/>
+		<type fullname="UnityEngine.UI.Text" preserve="all"/>
+		<type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="Unity.TextMeshPro">
+	    <type fullname="TMPro.TextMeshProUGUI" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="UnityEngine.InputLegacyModule">
+	    <type fullname="UnityEngine.Input" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="UnityEngine.UIModule">
+	    <type fullname="UnityEngine.Canvas" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="mscorlib">
+	    <type fullname="System.DateTime" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="Assembly-CSharp">
+	    <type fullname="GameEntry" preserve="all"/>
+		<type fullname="LuaEntity" preserve="all"/>
+		<type fullname="LuaUIForm" preserve="all"/>
+		<type fullname="EventIds" preserve="all"/>
+		<type fullname="GameData" preserve="all"/>
+		<type fullname="Extentions" preserve="all"/>
+		<type fullname="DataEventArgs" preserve="all"/>
+		<type fullname="DG.Tweening.DOTweenModuleUI" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="UnityGameFramework.Runtime">
+	    <type fullname="UnityGameFramework.Runtime.GameEntry" preserve="all"/>
+		<type fullname="UnityGameFramework.Runtime.ShutdownType" preserve="all"/>
+		<type fullname="UnityGameFramework.Runtime.BaseComponent" preserve="all"/>
+		<type fullname="UnityGameFramework.Runtime.UIComponent" preserve="all"/>
+		<type fullname="UnityGameFramework.Runtime.EntityComponent" preserve="all"/>
+		<type fullname="UnityGameFramework.Runtime.SoundComponent" preserve="all"/>
+		<type fullname="UnityGameFramework.Runtime.ResourceComponent" preserve="all"/>
+		<type fullname="UnityGameFramework.Runtime.FileSystemComponent" preserve="all"/>
+		<type fullname="UnityGameFramework.Runtime.EventComponent" preserve="all"/>
+		<type fullname="UnityGameFramework.Runtime.Log" preserve="all"/>
+		<type fullname="UnityGameFramework.Runtime.PlaySoundSuccessEventArgs" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="GameFramework">
+	    <type fullname="GameFramework.Resource.LoadAssetCallbacks" preserve="all"/>
+		<type fullname="GameFramework.Sound.PlaySoundParams" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="DOTween">
+	    <type fullname="DG.Tweening.DOTween" preserve="all"/>
+		<type fullname="DG.Tweening.PathType" preserve="all"/>
+		<type fullname="DG.Tweening.PathMode" preserve="all"/>
+		<type fullname="DG.Tweening.RotateMode" preserve="all"/>
+		<type fullname="DG.Tweening.TweenExtensions" preserve="all"/>
+		<type fullname="DG.Tweening.ShortcutExtensions" preserve="all"/>
+		<type fullname="DG.Tweening.TweenSettingsExtensions" preserve="all"/>
+		
+	</assembly>
+
+</linker>

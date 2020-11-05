@@ -1,0 +1,15 @@
+SelectGameForm = UIFormBase:New()
+local this = SelectGameForm
+
+function this.OnInit()
+    this.myTrain = this.transform:Find("myTrain")
+    UIEventListener.AddClick(this.myTrain, this.OpenMyTrain)
+end
+
+function this.OpenMyTrain()
+    AssetManager.OpenUIForm("SnowballLoadingForm", "Loading")
+    this:Close()
+    GameData.ChangeGameType("MyTrain")
+end
+
+return this

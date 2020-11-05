@@ -1,0 +1,1 @@
+"../../Tools/XlsxToLua/XlsxToLua.exe" "../../Excels/SpellWord/" "../../../Assets/Games/SpellWord/LuaScripts/DataTables" "-noClient" "-noLang" "-exportIncludeSubfolder" "-exportKeepDirectoryStructure" "-columnInfo" "-printEmptyStringWhenLangNotMatching" "-allowedNullNumber" 

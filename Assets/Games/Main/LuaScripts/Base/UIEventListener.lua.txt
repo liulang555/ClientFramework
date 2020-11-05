@@ -1,0 +1,83 @@
+UIEventListener = {}
+local this = UIEventListener
+
+this.listener = CS.UIEventListener
+
+function this.AddClick(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onClick:AddListener(func)
+    end
+end
+
+function this.RemoveClick(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onClick:RemoveListener(func)
+    end
+end
+
+function this.AddOnPointerUp(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onUp:AddListener(func)
+    end
+end
+
+function this.RemoveOnPointerUp(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onUp:RemoveListener(func)
+    end
+end
+
+function this.AddOnDrag(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onDrag:AddListener(func)
+    end
+end
+function this.RemoveOnDrag(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onDrag:RemoveListener(func)
+    end
+end
+
+function this.AddOnBeginDrag(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onBeginDrag:AddListener(func)
+    end
+end
+function this.RemoveOnBeginDrag(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onBeginDrag:RemoveListener(func)
+    end
+end
+function this.AddOnEndDrag(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onEndDrag:AddListener(func)
+    end
+end
+function this.RemoveOnEndDrag(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onEndDrag:RemoveListener(func)
+    end
+end
+
+function this.AddOnDrop(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onDrop:AddListener(func)
+    end
+end
+function this.RemoveOnDrop(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onDrop:RemoveListener(func)
+    end
+end

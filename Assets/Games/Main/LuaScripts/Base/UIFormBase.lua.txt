@@ -1,0 +1,25 @@
+UIFormBase = {}
+UIFormBase.__index = UIFormBase
+
+function UIFormBase:New()
+    return setmetatable({}, self)
+end
+
+function UIFormBase:Close()
+    if self:IsExist() then
+        GameEntry.UI:CloseUIForm(self.serialId)
+    end
+end
+
+function UIFormBase:Hide()
+    self.gameObject:SetActive(false)
+end
+
+function UIFormBase:Show(userData)
+    self.gameObject:SetActive(true)
+    self.OnOpen(userData)
+end
+
+function UIFormBase:IsExist()
+    return GameEntry.UI:HasUIForm(self.serialId)
+end

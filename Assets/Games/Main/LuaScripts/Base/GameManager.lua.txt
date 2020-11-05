@@ -1,0 +1,7 @@
+GameManager = {}
+local this = GameManager
+
+function this.ChangeGameType(gameType)
+    DataTable.UnloadAllDataTable()
+    GameData.ChangeGameType(gameType)
+end

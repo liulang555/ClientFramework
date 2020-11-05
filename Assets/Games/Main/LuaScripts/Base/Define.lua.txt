@@ -1,0 +1,44 @@
+-- 主要用途为C#脚本对Lua的定义，避免经常从C#寻找类型和减少代码量
+
+-- C#
+Convert = CS.System.Convert
+
+-- Unity
+Time = CS.UnityEngine.Time
+Sprite = CS.UnityEngine.Sprite
+TextAsset = CS.UnityEngine.TextAsset
+Vector3 = CS.UnityEngine.Vector3
+Vector2 = CS.UnityEngine.Vector2
+GameObject = CS.UnityEngine.GameObject
+Application = CS.UnityEngine.Application
+RuntimePlatform = CS.UnityEngine.RuntimePlatform
+Input = CS.UnityEngine.Input
+Camera = CS.UnityEngine.Camera
+Color = CS.UnityEngine.Color
+Screen = CS.UnityEngine.Screen
+Canvas = CS.UnityEngine.Canvas
+GraphicRaycaster = CS.UnityEngine.UI.GraphicRaycaster
+ForceMode = CS.UnityEngine.ForceMode
+ColorUtility = CS.UnityEngine.ColorUtility
+
+-- GameFramework
+GameEntry = CS.GameEntry
+GameEntryIn = CS.UnityGameFramework.Runtime.GameEntry
+ShutdownType = CS.UnityGameFramework.Runtime.ShutdownType
+LoadAssetCallbacks = CS.GameFramework.Resource.LoadAssetCallbacks
+Log = CS.UnityGameFramework.Runtime.Log
+LuaEntity = CS.LuaEntity
+GameData = CS.GameData
+PlaySoundParams = CS.GameFramework.Sound.PlaySoundParams
+PlaySoundSuccessEventArgs = CS.UnityGameFramework.Runtime.PlaySoundSuccessEventArgs
+
+-- DoTween
+DOTween = CS.DG.Tweening.DOTween
+PathType = CS.DG.Tweening.PathType
+PathMode = CS.DG.Tweening.PathMode
+RotateMode = CS.DG.Tweening.RotateMode
+DOVirtual = CS.DG.Tweening.DOVirtual
+DelayedCall = CS.DG.Tweening.DOVirtual.DelayedCall
+
+--SDK
+UMengAnalyticsController = CS.UMengAnalyticsController.Instance

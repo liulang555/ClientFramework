@@ -1,0 +1,16 @@
+SnowballLoadingForm = UIFormBase:New()
+local this = SnowballLoadingForm
+
+function this.OnInit()
+    this.txtProgress = this.transform:Find("slider/txt"):GetComponent("TextMeshProUGUI")
+    this.progressImg.fillAmount = 0;
+end
+
+function this.OnUpdate(elapseSeconds, realElapseSeconds)
+    this.progressImg.fillAmount = this.progressNum
+    this.txtProgress.text = math.ceil(this.progressNum * 100) .. "/%"
+end
+
+return this
+
+

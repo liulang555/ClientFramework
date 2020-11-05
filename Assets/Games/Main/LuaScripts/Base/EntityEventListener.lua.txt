@@ -1,0 +1,11 @@
+EntityEventListener = {}
+local this = EntityEventListener
+
+this.listener = CS.EntityEventListener
+
+function this.AddTriggerEnter(trans, func)
+    local eventListener = this.listener.Get(trans.gameObject)
+    if eventListener ~= nil then
+        eventListener.onTriggerEnter:AddListener(func)
+    end
+end

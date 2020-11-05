@@ -1,0 +1,1 @@
+"../Tools/XlsxToLua/XlsxToLua.exe" "../Excels/Snowball" "../../Assets/Games/Snowball/LuaScripts/DataTables" "-noClient" "-noLang" "-exportIncludeSubfolder" "-exportKeepDirectoryStructure" "-columnInfo" "-printEmptyStringWhenLangNotMatching" "-allowedNullNumber" 

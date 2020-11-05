@@ -1,0 +1,92 @@
+-- Lua层的工具方法
+
+Utility = {}
+local this = Utility
+
+---打印table
+function this._list_table(tb, table_list, level)
+    local ret = ""
+    local indent = string.rep(" ", level * 9)
+
+    for k, v in pairs(tb) do
+        local quo = type(k) == "string" and '"' or ""
+        ret = ret .. indent .. "[" .. quo .. tostring(k) .. quo .. "] = "
+
+        if type(v) == "table" then
+            local t_name = table_list[v]
+            if t_name then
+                ret = ret .. tostring(v) .. ' -- > ["' .. t_name .. '"]\n'
+            else
+                table_list[v] = tostring(k)
+                ret = ret .. "{\n"
+                ret = ret .. this._list_table(v, table_list, level + 1)
+                ret = ret .. indent .. "}\n"
+            end
+        elseif type(v) == "string" then
+            ret = ret .. '"' .. tostring(v) .. '"\n'
+        elseif type(v) == "function" then
+            --是否打印方法
+        else
+            ret = ret .. tostring(v) .. "\n"
+        end
+    end
+
+    local mt = getmetatable(tb)
+    if mt then
+        ret = ret .. "\n"
+        local t_name = table_list[mt]
+        ret = ret .. indent .. "<metatable> = "
+
+        if t_name then
+            ret = ret .. tostring(mt) .. ' -- > ["' .. t_name .. '"]\n'
+        else
+            ret = ret .. "{\n"
+            ret = ret .. this._list_table(mt, table_list, level + 1)
+            ret = ret .. indent .. "}\n"
+        end
+    end
+    return ret
+end
+
+---打印table
+function this.table_tostring(tb)
+    if type(tb) ~= "table" then
+        error("Sorry, it's not table, it is " .. type(tb) .. ".")
+    end
+
+    local ret = " = {\n"
+    local table_list = {}
+    table_list[tb] = "root table"
+    ret = ret .. this._list_table(tb, table_list, 1)
+    ret = ret .. "}"
+    return ret
+end
+
+function this.IsEditor()
+    return Application.platform == RuntimePlatform.WindowsEditor
+end
+
+function this.IsIOS()
+    return Application.platform == RuntimePlatform.Android
+end
+
+function this.IsAndroid()
+    return Application.platform == RuntimePlatform.IPhonePlayer
+end
+
+-- 获取两点之间距离一定百分比的一个点
+--"startPos" 起始点
+--"endPos" 结束点
+--"percent" 起始点到目标点距离百分比
+function this.GetBetweenPoint(startPos,endPos,percent)
+    local normal = endPos - startPos
+    local distance = Vector3.Distance(startPos, endPos)
+    return normal.normalized * (distance * percent) + startPos;
+end
+
+
+
+
+
+
+

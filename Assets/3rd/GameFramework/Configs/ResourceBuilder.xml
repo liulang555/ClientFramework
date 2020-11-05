@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UnityGameFramework>
+  <ResourceBuilder>
+    <Settings>
+      <InternalResourceVersion>0</InternalResourceVersion>
+      <Platforms>32</Platforms>
+      <ZipSelected>True</ZipSelected>
+      <UncompressedAssetBundleSelected>False</UncompressedAssetBundleSelected>
+      <DisableWriteTypeTreeSelected>False</DisableWriteTypeTreeSelected>
+      <DeterministicAssetBundleSelected>False</DeterministicAssetBundleSelected>
+      <ForceRebuildAssetBundleSelected>True</ForceRebuildAssetBundleSelected>
+      <IgnoreTypeTreeChangesSelected>False</IgnoreTypeTreeChangesSelected>
+      <AppendHashToAssetBundleNameSelected>False</AppendHashToAssetBundleNameSelected>
+      <ChunkBasedCompressionSelected>True</ChunkBasedCompressionSelected>
+      <OutputPackageSelected>True</OutputPackageSelected>
+      <OutputFullSelected>True</OutputFullSelected>
+      <OutputPackedSelected>True</OutputPackedSelected>
+      <BuildEventHandlerTypeName>BuildEventHandler</BuildEventHandlerTypeName>
+      <OutputDirectory>Others/Output</OutputDirectory>
+    </Settings>
+  </ResourceBuilder>
+</UnityGameFramework>

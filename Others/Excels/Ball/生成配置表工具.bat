@@ -1,0 +1,1 @@
+"../../Tools/XlsxToLua/XlsxToLua.exe" "../../Excels/Ball/" "../../../Assets/Games/Ball/LuaScripts/DataTables" "-noClient" "-noLang" "-exportIncludeSubfolder" "-exportKeepDirectoryStructure" "-columnInfo" "-printEmptyStringWhenLangNotMatching" "-allowedNullNumber" 

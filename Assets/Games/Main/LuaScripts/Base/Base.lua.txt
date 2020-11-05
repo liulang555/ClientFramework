@@ -1,0 +1,20 @@
+-- 基础设施，require 顺序不要轻易调整，谨慎 --
+
+-- 基础定义，全局Table，全局方法，工具脚本等。
+require "Base/Define"
+require "Base/Utility"
+require "Base/Timer"
+require "Base/UIEventListener"
+require "Base/EntityEventListener"
+require "Base/EntityManager"
+require "Base/Extentions"
+
+-- 基本模块，资源，配置表等
+require "Base/GameManager"
+require "Base/AssetManager"
+require "Base/EventManager"
+require "Base/DataTable"
+
+-- 基类
+require "Base/UIFormBase"
+require "Base/EntityBase"

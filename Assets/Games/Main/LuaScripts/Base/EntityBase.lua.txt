@@ -1,0 +1,18 @@
+EntityBase = {}
+EntityBase.__index = EntityBase
+
+function EntityBase:New()
+    return setmetatable({}, self)
+end
+
+--记录到lua的列表中
+function EntityBase:AddToManager(id)
+    EntityManager.Add(id,self)
+end
+function EntityBase.DeleteFromManager(id)
+    EntityManager.Delete(id)
+end
+
+function EntityBase:Hide()
+    GameEntry.Entity:HideEntity(self.entityId);
+end

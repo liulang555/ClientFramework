@@ -1,0 +1,76 @@
+AssetManager = {}
+local this = AssetManager
+
+this.generateSerialId = 0
+
+function this.ShowEntity(entityAssetPath, entityGroupName, userData)
+    this.ShowEntityWithEntityID(this.GenerateSerialId(), entityAssetPath, entityGroupName, userData)
+end
+
+function this.ShowEntityWithEntityID(entityId, entityAssetPath, entityGroupName, userData)
+    if entityGroupName == nil then
+        entityGroupName = "DefaultGroup"
+    end
+    entityAssetPath = string.format("Assets/Games/%s/Entity/%s.prefab", GameData.GameType, entityAssetPath)
+    if userData == nil then
+        GameEntry.Entity:ShowEntity(entityId, typeof(LuaEntity), entityAssetPath, entityGroupName)
+    else
+        GameEntry.Entity:ShowEntity(entityId, typeof(LuaEntity), entityAssetPath, entityGroupName, userData)
+    end
+end
+
+function this.OpenUIForm(uiFormAssetPath, uiGroupName, userData)
+    if uiGroupName == nil then
+        uiGroupName = "DefaultGroup"
+    end
+    uiFormAssetPath = string.format("Assets/Games/%s/UI/UIForms/%s.prefab", GameData.GameType, uiFormAssetPath)
+    if userData == nil then
+        GameEntry.UI:OpenUIForm(uiFormAssetPath, uiGroupName);
+    else
+        GameEntry.UI:OpenUIForm(uiFormAssetPath, uiGroupName, false, userData);
+    end
+end
+
+function this.PlayMusic(soundAssetPath)
+    soundAssetPath = string.format("Assets/Games/%s/Sounds/%s.mp3", GameData.GameType, soundAssetPath)
+    local playSoundParams = PlaySoundParams.Create()
+    playSoundParams.Loop = true
+    GameEntry.Sound:PlaySound(soundAssetPath, "Music", playSoundParams)
+end
+
+function this.PlaySound(soundAssetPath)
+    soundAssetPath = string.format("Assets/Games/%s/Sounds/%s.wav", GameData.GameType, soundAssetPath)
+    GameEntry.Sound:PlaySound(soundAssetPath, "Sound")
+end
+
+function this.PlayUISound(soundAssetPath)
+    soundAssetPath = string.format("Assets/Games/%s/Sounds/%s.wav", GameData.GameType, soundAssetPath)
+    GameEntry.Sound:PlaySound(soundAssetPath, "UISound")
+end
+
+function this.LoadUISprite(uiSpriteAssetPath, successCallback, failureCallback, updateCallback, dependencyAssetCallback)
+    uiSpriteAssetPath = string.format("Assets/Games/%s/UI/UISprites/%s.png", GameData.GameType, uiSpriteAssetPath)
+    this.LoadAsset(uiSpriteAssetPath, typeof(Sprite), successCallback, failureCallback, updateCallback, dependencyAssetCallback)
+end
+
+function this.LoadAsset(assetName, type, successCallback, failureCallback, updateCallback, dependencyAssetCallback)
+    if not failureCallback then
+        failureCallback = function(assetName, status, errorMessage, userData)
+            Log.Debug("AssetManager: " .. errorMessage)
+        end
+    end
+    GameEntry.Resource:LoadAsset(assetName, type, LoadAssetCallbacks(successCallback, failureCallback, updateCallback, dependencyAssetCallback))
+end
+function this.LoadAsset(assetName, type, successCallback, failureCallback, updateCallback, dependencyAssetCallback,userData)
+    if not failureCallback then
+        failureCallback = function(assetName, status, errorMessage, userData)
+            Log.Debug("AssetManager: " .. errorMessage)
+        end
+    end
+    GameEntry.Resource:LoadAsset(assetName, type, LoadAssetCallbacks(successCallback, failureCallback, updateCallback, dependencyAssetCallback),userData)
+end
+
+function this.GenerateSerialId()
+    this.generateSerialId = this.generateSerialId - 1
+    return this.generateSerialId
+end

@@ -1,0 +1,41 @@
+EntityManager = {}
+local this = EntityManager
+
+--地块的缓存
+this.EntityCacheDic = {}
+
+function this.Add(entityID,groundTable)
+    this.EntityCacheDic[entityID] = groundTable
+end
+function this.Delete(entityID)
+    this.EntityCacheDic[entityID] = nil
+end
+function this.GetEntityWithID(entityID)
+    if entityID == nil then
+        Log.Error("EntityManager GetEntityWithID entityID is nil")
+        return nil
+    end
+    if this.EntityCacheDic[entityID] then
+        return this.EntityCacheDic[entityID]
+    else
+        return nil
+    end
+end
+function this.GetEntityWithEntityCompent(entity)
+    if entity == nil then
+        Log.Error("EntityManager GetEntityWithEntityCompent entity is nil")
+        return nil
+    end
+    if entity.Id == nil then
+        Log.Error("EntityManager GetEntityWithEntityCompent entity.Id is nil")
+        return nil
+    end
+    if this.EntityCacheDic[entity.Id] then
+        return this.EntityCacheDic[entity.Id]
+    else
+        Log.Error("EntityManager GetEntityWithEntityCompent GetValue is nil")
+        return nil
+    end
+end
+
+
